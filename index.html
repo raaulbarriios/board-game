@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de la Oca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/views.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar UI -->
+        <aside class="ui-panel glass-panel">
+            <header>
+                <h1>Juego de la Oca</h1>
+            </header>
+            
+            <section id="turn-indicator" class="turn-section">
+                <h2>Turno Actual</h2>
+                <div id="current-player-display" class="player-badge">Esperando jugadores...</div>
+                
+                <div class="dice-container" id="dice-container">
+                    <div id="dice-result" class="dice-result">-</div>
+                    <button id="roll-dice-btn" class="primary-btn" disabled>🎲 Tirar Dado</button>
+                </div>
+            </section>
+
+            <section id="players-list" class="players-section">
+                <h3>Jugadores</h3>
+                <div id="players-container"></div>
+
+                <div class="add-player-form">
+                    <input type="text" id="new-player-name" placeholder="Nombre...">
+                    <input type="color" id="new-player-color" value="#ff0055">
+                    <button id="add-player-btn" class="secondary-btn">Añadir</button>
+                </div>
+                <button id="start-game-btn" class="primary-btn mt-2" style="width: 100%;">Comenzar Juego</button>
+            </section>
+
+            <section id="event-log" class="log-section" style="display: none;">
+                <h3>Historial</h3>
+                <ul id="log-list"></ul>
+            </section>
+        </aside>
+
+        <main class="board-area">
+            <div id="game-board" class="game-board">
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

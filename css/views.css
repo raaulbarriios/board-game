@@ -1,0 +1,91 @@
+.ui-panel { 
+    flex: 0 0 320px; 
+    max-width: 320px;
+    height: 100%; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+    background: var(--panel-bg);
+    border-radius: 16px;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow-y: auto; 
+}
+
+@media (max-width: 900px) {
+    .ui-panel {
+        max-width: 100%;
+        height: auto;
+        flex: none;
+    }
+}
+
+header { text-align: center; margin-bottom: 8px; border-bottom: 3px solid var(--border-color); padding-bottom: 12px; flex-shrink: 0; }
+header h1 { font-size: 2rem; color: #ffffff; margin-bottom: 4px; font-weight: 900; }
+header p { color: var(--text-secondary); font-size: 1rem; font-weight: 700;}
+
+.turn-section { 
+    background: #0f172a; 
+    border-radius: 8px; 
+    padding: 16px; 
+    text-align: center; 
+    border: 3px solid #334155;
+    flex-shrink: 0;
+}
+.turn-section h2 { font-size: 1.1rem; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; margin-bottom: 12px; }
+
+.player-badge { 
+    margin: 8px auto; padding: 6px 16px; border-radius: 8px; 
+    font-weight: 900; font-size: 1.2rem; 
+    display: inline-block;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.9);
+    border: 3px solid rgba(255,255,255,0.8);
+}
+
+.dice-container { margin-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+.dice-result {
+    width: 64px; height: 64px;
+    background: #1e293b;
+    border: 4px solid var(--accent);
+    border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 2.2rem; font-weight: 900;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+.dice-result.rolling { animation: minimalShake 0.2s infinite; border-color: #fca5a5; color: #fca5a5; }
+
+@keyframes minimalShake {
+    0% { transform: translate(2px, 2px) rotate(0deg); }
+    33% { transform: translate(-2px, -3px) rotate(-2deg); }
+    66% { transform: translate(-3px, 2px) rotate(2deg); }
+    100% { transform: translate(2px, -2px) rotate(0deg); }
+}
+
+.players-section h3, .log-section h3 { font-size: 1.1rem; color: #ffffff; text-transform: uppercase; font-weight: 900; border-bottom: 3px solid #334155; padding-bottom: 6px; margin-bottom: 12px; }
+
+.players-section { 
+    background: #0f172a; 
+    border-radius: 8px; 
+    padding: 16px; 
+    border: 3px solid #334155;
+    flex-shrink: 0; 
+}
+
+.add-player-form { display: flex; gap: 8px; margin-top: 12px; margin-bottom: 16px;}
+.add-player-form input[type="text"] { flex: 1; background: #1e293b; border: 3px solid #334155; color: white; padding: 10px 12px; border-radius: 6px; font-family: inherit; font-size: 1rem; font-weight: bold; width: 100%; min-width: 0; }
+.add-player-form input[type="text"]:focus { outline: none; border-color: var(--accent); }
+.add-player-form input[type="color"] { width: 44px; height: 44px; padding: 0; border: 3px solid #334155; border-radius: 6px; background: #1e293b; cursor: pointer; flex-shrink: 0; }
+
+#players-container { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; max-height: 120px; overflow-y: auto; }
+.player-list-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #1e293b; border-radius: 6px; font-size: 1.1rem; font-weight: 800; border: 3px solid #334155; color: #fff;}
+.player-color-dot { width: 14px; height: 14px; border-radius: 50%; border: 3px solid #fff; }
+
+.log-section { flex: 1; display: flex; flex-direction: column; background: #0f172a; border-radius: 8px; padding: 16px; border: 3px solid #334155; overflow: hidden; min-height: 160px;}
+#log-list { list-style: none; overflow-y: scroll; flex: 1; display: flex; flex-direction: column; gap: 8px; padding-right: 8px;}
+#log-list li { background: #1e293b; padding: 10px 12px; border-radius: 6px; font-size: 0.95rem; font-weight: 800; border-left: 5px solid var(--accent); animation: slideIn 0.2s ease-out; color: #f8fafc; }
+
+@keyframes slideIn { from { opacity: 0; transform: translateX(-5px); } to { opacity: 1; transform: translateX(0); } }
