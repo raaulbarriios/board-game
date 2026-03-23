@@ -11,7 +11,6 @@ export class BoardView {
         if (!this.boardElement) return;
         this.boardElement.innerHTML = '';
         
-        // Create space instances and DOM elements
         BOARD_DATA.forEach(data => {
             const space = new Space(data);
             this.spaces.push(space);
@@ -19,7 +18,6 @@ export class BoardView {
             this.boardElement.appendChild(el);
         });
 
-        // Arrange in a snake pattern (bottom to top)
         this.arrangeSnakePattern();
     }
 
@@ -27,7 +25,7 @@ export class BoardView {
         const cols = 10;
         let row = 7;
         let col = 10;
-        let direction = -1; // -1 for left, 1 for right
+        let direction = -1;
 
         for (let i = 0; i < BOARD_SIZE; i++) {
             const spaceEl = document.getElementById(`space-${i + 1}`);
@@ -36,7 +34,6 @@ export class BoardView {
                 spaceEl.style.gridColumn = col;
             }
 
-            // Move to next cell
             col += direction;
             if (col < 1) {
                 col = 1;
